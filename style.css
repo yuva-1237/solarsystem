@@ -1,0 +1,241 @@
+body {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  color: #fff;
+  font-family: "Segoe UI", Arial, sans-serif;
+  text-align: center;
+  position: relative;
+  background: #000; /* Pure black background */
+}
+.solar-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000; /* Pure black background */
+  z-index: 0;
+  pointer-events: none;
+}
+/* Star field styles */
+#stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.7;
+  width: 1.5px;
+  height: 1.5px;
+  box-shadow: 0 0 2px 1px #fff8;
+  animation: twinkle 2s infinite alternate;
+}
+@keyframes twinkle {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.solar-system-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.solar-system {
+  position: relative;
+  width: 700px;
+  height: 700px;
+  max-width: 95vw;
+  max-height: 95vh;
+  perspective: 1200px;
+  margin: 0 auto;
+  display: block;
+  z-index: 2;
+}
+.sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #fffde0 60%, #ffd700 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 24px 10px #fffbe0,
+    /* gentle white glow */ 0 0 60px 25px #ffd700,
+    /* golden glow */ 0 0 120px 50px #ffdd66; /* soft larger halo */
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  cursor: pointer;
+  animation: sun-glow 2.2s infinite alternate;
+}
+@keyframes sun-glow {
+  0% {
+    box-shadow: 0 0 24px 10px #fffbe0, 0 0 60px 25px #ffd700,
+      0 0 120px 50px #ffdd66;
+  }
+  100% {
+    box-shadow: 0 0 40px 20px #fffbe0, 0 0 80px 35px #ffd700,
+      0 0 180px 80px #ffdd66;
+  }
+}
+.orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.22); /* thicker and more opaque */
+  border-style: dotted;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.1); /* subtle glow */
+}
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+.mercury {
+  width: 10px;
+  height: 10px;
+  background: #bbb;
+}
+.venus {
+  width: 18px;
+  height: 18px;
+  background: #e6c28b;
+}
+.earth {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #2193b0 60%, #6dd5ed 100%);
+}
+.mars {
+  width: 16px;
+  height: 16px;
+  background: #b55328;
+}
+.jupiter {
+  width: 36px;
+  height: 36px;
+  background: #e7cba9;
+}
+.saturn {
+  width: 32px;
+  height: 32px;
+  background: #ede3b3;
+}
+.uranus {
+  width: 26px;
+  height: 26px;
+  background: #aeeaff;
+}
+.neptune {
+  width: 24px;
+  height: 24px;
+  background: #3756ff;
+}
+
+.orbit-mercury {
+  width: 120px;
+  height: 120px;
+  z-index: 1;
+}
+.orbit-venus {
+  width: 170px;
+  height: 170px;
+  z-index: 2;
+}
+.orbit-earth {
+  width: 220px;
+  height: 220px;
+  z-index: 3;
+}
+.orbit-mars {
+  width: 270px;
+  height: 270px;
+  z-index: 4;
+}
+.orbit-jupiter {
+  width: 340px;
+  height: 340px;
+  z-index: 5;
+}
+.orbit-saturn {
+  width: 410px;
+  height: 410px;
+  z-index: 6;
+}
+.orbit-uranus {
+  width: 480px;
+  height: 480px;
+  z-index: 7;
+}
+.orbit-neptune {
+  width: 550px;
+  height: 550px;
+  z-index: 8;
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid #e1c87a;
+  opacity: 0.6;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  z-index: 1;
+}
+.moon-orbit {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  left: 50%;
+  top: 50%;
+  border: 1.5px dotted rgba(255, 255, 255, 0.15); /* make moon orbit more visible */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.moon {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #eee;
+  border-radius: 50%;
+  left: 100%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 6px 1px #fff;
+}
+
+@media (max-width: 800px) {
+  .solar-system {
+    width: 98vw;
+    height: 98vw;
+    max-width: 98vw;
+    max-height: 98vw;
+  }
+}
